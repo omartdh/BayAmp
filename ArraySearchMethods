@@ -1,0 +1,77 @@
+package Package1;
+
+import java.util.ArrayList;
+
+public class ArrayUtilities {
+	
+	public static boolean resultOfAddingTwoNumbers(int [] temp, int value){
+		 
+		
+		ArrayList<Integer> tempArrayList = new ArrayList<Integer>();
+		
+		
+		boolean result = false;
+		int valueToBeFound;
+		int count = 0;
+		while(!result && count<temp.length){
+			
+			tempArrayList = new ArrayList<Integer>();
+			valueToBeFound = value - temp[count];
+			
+			for(int i=0; i<temp.length; i++){
+				if(i!=count)
+					tempArrayList.add(temp[i]);
+			}
+			
+			if(tempArrayList.contains(valueToBeFound) )
+				result = true;
+			count++;
+		}
+		
+		return result;
+		
+	}
+	
+	
+	public static int[][] resultOfAddingTwoNumbers(int [] temp, int value, String str){
+		 
+		int[][] resultArray = new int[10][2]; //store the result in this array
+		int keepTrack = 0; //to keep track of the last assigned index of the resultArray
+		
+		ArrayList<Integer> tempArrayList = new ArrayList<Integer>();
+		//ArrayList<ArrayList<Integer>> resultTwoDimensionalArrayList = new ArrayList<ArrayList<Integer>>();
+		
+		int valueToBeFound;
+		int count = 0;
+		while(count<temp.length){
+			
+			//we need to create a new arraylist for every iteration excluding the current temp element
+			tempArrayList = new ArrayList<Integer>();
+			valueToBeFound = value - temp[count];
+			
+			for(int i=0; i<temp.length; i++){
+				if(i!=count)
+					tempArrayList.add(temp[i]);
+			}
+			
+			//add the result if there is any
+			if(tempArrayList.contains(valueToBeFound) ){
+				resultArray[keepTrack][0] = temp[count];
+				resultArray[keepTrack][1] = valueToBeFound;
+				keepTrack++;
+				
+			}
+			
+			/*if(tempArrayList.contains(valueToBeFound) ){
+				resultTwoDimensionalArrayList.add(count, element);
+				
+			}*/
+			
+			count++;
+		}
+		
+		return resultArray;
+		
+	}
+
+}
