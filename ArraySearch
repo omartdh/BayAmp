@@ -1,0 +1,33 @@
+package Package1;
+
+import java.util.Random;
+
+public class Application {
+
+	public static void main(String[] args) {
+
+		final int size = 10;
+		int [] arrayOfIntegers = new int [size];
+		Random random = new Random();
+
+		for(int i=0; i<size; i++)
+			arrayOfIntegers[i] = random.nextInt(10)+1;
+
+		for(int i=0; i<size; i++)
+			System.out.print(arrayOfIntegers[i] + "	");
+
+		int value = 15;
+		boolean boolResult = Package1.ArrayUtilities.resultOfAddingTwoNumbers(arrayOfIntegers, value);
+		int[][] result = Package1.ArrayUtilities.resultOfAddingTwoNumbers(arrayOfIntegers, value, "hi");
+
+		System.out.println();
+		if(boolResult){
+			for(int i=0; i<result.length; i++){
+				for(int j=0; j<result[i].length; j++)
+					System.out.print(result[i][j] + " ");
+				System.out.println();
+			}
+		}
+	}
+
+}
